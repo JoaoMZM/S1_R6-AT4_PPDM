@@ -15,7 +15,7 @@ class PlayerScreen extends StatefulWidget {
 class _PlayerScreenState extends State<PlayerScreen>
     with WidgetsBindingObserver {
   final AudioPlayer _player = AudioPlayer();
-  final  _storage = TrackStorage();
+  final _storage = TrackStorage();
 
   List<Track> _tracks = [];
   bool _loading = true;
@@ -103,8 +103,10 @@ class _PlayerScreenState extends State<PlayerScreen>
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text('Não foi possível tocar "${track.name}". '
-              'Verifique se o arquivo existe em ${track.assetPath}.'),
+          content: Text(
+            'Não foi possível tocar "${track.name}". '
+            'Verifique se o arquivo existe em ${track.assetPath}.',
+          ),
         ),
       );
     }
